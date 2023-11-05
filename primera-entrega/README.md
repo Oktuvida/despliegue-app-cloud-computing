@@ -7,7 +7,7 @@ Despligue de la aplicación en el minikube.
 Los siguientes pasos están especificados para GNU/Linux, requiriéndose de los siguientes paquetes:
 
 - [`minikube`](https://minikube.sigs.k8s.io/docs/start/)
-- [`docker`] (https://docs.docker.com/engine/install/)
+- [`docker`](https://docs.docker.com/engine/install/)
 
 ## Pasos
 
@@ -67,7 +67,7 @@ kubectl get deployments
 
 Que dara el output mostrado en la imagen. El resultado muestra una lista de los despliegues existentes, junto con detalles sobre su estado actual. Particularmente, se muestran los despliegues de las aplicaciones con sus respectivos nombres, el número de réplicas deseadas frente al número de réplicas disponibles, y la antigüedad de cada despliegue.
 
-![Visualizacion del Despliegue](screenshots/visualizacion_despliegue)
+![Visualizacion del Despliegue](screenshots/visualizacion_despliegue.png)
 
 Además, se puede ver en detalle los detalles de cada uno de los despliegues.
 
