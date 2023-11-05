@@ -1,5 +1,11 @@
 # Despliegue App Cloud Computing
 
+## Integrantes
+
+- Dafne Valeria Castellanos Rosas
+- Diryon Yonith Mora Romero
+- Laura Valentina Gonzalez Rodriguez
+
 ## ¿Qué aplicación se seleccionó?
 
 Se tomó la aplicación [Example Voting App](https://github.com/dockersamples/example-voting-app), que consta de 4 microservicios, así como una aplicación frontend.
