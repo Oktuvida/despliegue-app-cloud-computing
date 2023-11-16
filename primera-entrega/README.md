@@ -24,7 +24,7 @@ kubectl get pods -A
 
 ### Ejecutar aplicación en Kubenetes
 
-Asumiendo que se está en la carpeta [primer-entrega](/primer-entrega/), debemos correr la aplicación en Kubernetes:
+Asumiendo que se está en la carpeta [primera-entrega](/primera-entrega/), debemos correr la aplicación en Kubernetes:
 
 ```bash
 kubectl create -f k8s-specifications/
