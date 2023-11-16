@@ -13,3 +13,9 @@ Se tomó la aplicación [Example Voting App](https://github.com/dockersamples/ex
 Cada uno de estos servicios tiene su propio archivo Dockerfile y su imagen correspondiente. Además, el archivo `docker-compose.yaml` define cómo se conectan estos servicios.
 
 Por otra parte, el proyecto incluye la carpeta `k8s-specifications`, donde se definen las especificaciones YAML de los servicios para ejecutarlos en Kubernetes.
+
+## Entregas
+
+- [Primera Entrega](primera-entrega/README.md)
+- [Segunda Entrega](segunda-entrega/README.md)
+- [Tercera Entrega](tercera-entrega/README.md)
