@@ -12,7 +12,7 @@ Siguiendo los pasos de la entrega anterior, se crea el clúster mediante la term
 
 Para exponer la dirección IP pública de la aplicación frontend, se deben realizar los siguientes cambios en el archivo [./k8s-specifications/vote-service.yaml](/segunda-entrega/k8s-specifications/):
 
-- Modificar el `type` a `LoadBalancer``.
+- Modificar el `type` a `LoadBalancer`.
 - Establecer el `port` en `80`.
 - Eliminar el `targetPort`.
 
