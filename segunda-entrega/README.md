@@ -59,7 +59,7 @@ Si se parte desde la segunda entrega, con los nuevos archivos de la carpeta [./k
 namespace="vote"
 kubectl delete namespace --ignore-not-found=true -n $namespace
 kubectl create namespace $namespace
-kubectl apply -f vote-specifications/ -n $namespace
+kubectl apply -f k8s-specifications / -n $namespace
 ```
 
 Estos cambios permiten obtener la dirección IP pública, como se muestra en la siguiente imagen:
