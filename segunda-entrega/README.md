@@ -4,9 +4,35 @@ Este documento detalla los pasos de implementación del WAF/Frontdoor/app-gatewa
 
 ## Pasos
 
-### Inicializar Clúster
+### Crear el Resource Group
 
-Siguiendo los pasos de la entrega anterior, se crea el clúster mediante la terminal de Azure. Los resultados de esta acción se presentan en la siguiente imagen.
+Primero que nada, se debe establecer un Resource Group donde se realizará todo el trabajo, este paso es el más sencillo, pues solo se debe asisgnar un nombre, en nuestro caso, se utilizó `MC_cloud-computing_clu-vote_eastus`. Vease la siguiente imagen como referencia.
+
+Luego se debe establecer un Grupo de Recursos donde se llevará a cabo todo el trabajo. Este grupo proporciona un entorno organizado para administrar y agrupar recursos relacionados, lo que facilita la gestión y el mantenimiento durante el desarrollo del proyecto.
+
+Esta fase es bastante sencilla, ya que solo implica asignar un nombre. En nuestro caso, se utilizó el nombre `MC_cloud-computing_clu-vote_eastus`. Puedes ver la imagen a continuación como referencia.
+
+![Resource Group](screenshots/resource_group.png)
+
+### Crear la Virtual Network
+
+Para configurar el Application Gateway, es necesario emplear una Virtual Network. El primer paso es nombrar esta red, en este caso, se la denominó `AKS-vnet-16379065`, como se muestra en la imagen a continuación: 
+
+![Name Virtual Network](screenshots/virtual_network_1.png)
+
+Posteriormente, se debe definir el `Address space` para este proyecto. En este escenario específico, se optó por `10.224.0.0/12`, aunque es fundamental disponer de un espacio lo suficientemente amplio para futuras expansiones. Además, se deben crear dos subredes. La primera, `aks-subnet`, se configuró como `10.224.0.0/24`. La segunda, llamada `ingress-appgateway-subnet`, se definió como `10.225.0.0/24`. Se recomienda que estas subredes finalicen en `/24` para limitar a 255 direcciones, evitando un exceso de direcciones no utilizadas. Véase las siguientes imagenes como referencia:
+
+![Primera Subnet](screenshots/virtual_network_2.png)
+
+![Segunda Subnet](screenshots/virtual_network_3.png)
+
+### Crear y configurar el Kubernet
+
+El siguiente paso es la creación y configuración del clúster de Kubernetes en el que trabajaremos. Esta tarea es sencilla, solo se debe asignar un nombre al clúster, en este caso, se le llamó `Clue-vote`, y agregarlo al mismo Grupo de Recursos creado anteriormente, como se muestra en la imagen a continuación:
+
+![Crear Kubernet](screenshots/crear_kubernet.png)
+
+Posteriormente, siguiendo los pasos de la entrega anterior, se inicia la configuración del clúster a través de la terminal de Azure. Los resultados de esta acción se pueden apreciar en la siguiente imagen:
 
 ![Inicializar Cluster](./screenshots/crear_cluster.jpg)
 
@@ -42,29 +68,9 @@ Estos cambios permiten obtener la dirección IP pública, como se muestra en la 
 
 La aplicación resultante puede ser visualizada a través de un navegador:
 
-![Aplicación Pública](screenshots/resultados_despliegue.jpg)
+![Aplicación Votos](screenshots/resultados_despliegue.jpg)
 
-### Crear el Resource Group
-
-Se debe establecer un Resource Group donde se realizará todo el trabajo, este paso es el más sencillo, pues solo se debe asisgnar un nombre, en nuestro caso, se utilizó `MC_cloud-computing_clu-vote_eastus`. Vease la siguiente imagen como referencia.
-
-Luego se debe establecer un Grupo de Recursos donde se llevará a cabo todo el trabajo. Este grupo proporciona un entorno organizado para administrar y agrupar recursos relacionados, lo que facilita la gestión y el mantenimiento durante el desarrollo del proyecto.
-
-Esta fase es bastante sencilla, ya que solo implica asignar un nombre. En nuestro caso, se utilizó el nombre `MC_cloud-computing_clu-vote_eastus`. Puedes ver la imagen a continuación como referencia.
-
-![Resource Group](screenshots/resource_group.png)
-
-### Crear la Virtual Network
-
-Para configurar el Application Gateway, es necesario emplear una Virtual Network. El primer paso es nombrar esta red, en este caso, se la denominó `AKS-vnet-16379065`, como se muestra en la imagen a continuación: 
-
-![Name Virtual Network](screenshots/virtual_network_1.png)
-
-Posteriormente, se debe definir el `Address space` para este proyecto. En este escenario específico, se optó por `10.224.0.0/12`, aunque es fundamental disponer de un espacio lo suficientemente amplio para futuras expansiones. Además, se deben crear dos subredes. La primera, `aks-subnet`, se configuró como `10.224.0.0/24`. La segunda, llamada `ingress-appgateway-subnet`, se definió como `10.225.0.0/24`. Se recomienda que estas subredes finalicen en `/24` para limitar a 255 direcciones, evitando un exceso de direcciones no utilizadas. Véase las siguientes imagenes como referencia:
-
-![Primera Subnet](screenshots/virtual_network_2.png)
-
-![Segunda Subnet](screenshots/virtual_network_3.png)
+![Recuento Resultados](screenshots/resultados_despliegue2.png)
 
 ### Configuración de la Política para el Web Application Firewall
 
@@ -75,3 +81,4 @@ Para el correcto funcionamiento del WAF en el Application Gateway, es necesario 
 Posteriormente, se procede a seleccionar las Managed Rules conforme a los diferentes niveles de seguridad requeridos. En este proyecto, que se considera relativamente sencillo y con bajos riesgos, se optó por el conjunto de reglas OWASP 3.0. No obstante, se recomienda encarecidamente revisar y ajustar estas reglas según la complejidad y los riesgos particulares de cada proyecto. La imagen a continuación muestra la configuración de las reglas:
 
 ![Configuración de Reglas](screenshots/waf_2.png)
+
