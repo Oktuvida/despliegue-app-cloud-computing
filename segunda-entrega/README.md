@@ -82,3 +82,36 @@ Posteriormente, se procede a seleccionar las Managed Rules conforme a los difere
 
 ![Configuración de Reglas](screenshots/waf_2.png)
 
+### Creación del Application Gateway
+
+El próximo paso es la creación del Application Gateway. En primer lugar, se le asigna un nombre, en este caso, se ha elegido `ingress-appgateway`. Se configura como WAF_V2 utilizando las políticas creadas anteriormente. Además, se le asigna la Virtual Network y una de las subredes, como se puede apreciar en la imagen a continuación:
+
+![Configuración AG](screenshots/ag_1.png)
+
+Luego, se procede con la configuración de los frontends. Se elige una nueva IP que servirá como el punto de conexión para todos los microservicios. Esta IP se denomina `ingress-appgateway`, como se muestra en la siguiente imagen:
+
+![Frontends AG](screenshots/ag_2.png)
+
+A continuación, se configuran los backends. Se asocian las direcciones IP públicas generadas anteriormente con un nombre específico. Por ejemplo, `pool-vote-result-80-bp-80` está asociada a `20.118.147.192` y `pool-vote-vote-80-bp-80` a `20.118.147.240`, como se evidencia en la imagen:
+
+![Backend AG](screenshots/ag_3.png)
+
+Finalmente, se lleva a cabo la configuración de la tabla de enrutamiento para dirigir las direcciones públicas a un solo destino. Sin embargo, surge un problema debido a que ambas aplicaciones utilizan el puerto 80, lo que imposibilita añadir más de una regla de enrutamiento con el mismo puerto. En este caso, se optó por utilizar un sitio externo como intermediario en esta etapa.
+
+Se procede a crear un Listener TLS certificate correspondiente al dominio utilizado, `diryon-mora.work`. Este certificado se genera en Cloudflare (mi hosting) con formato `.pem` y una clave privada, posteriormente se pasa al OpenSSL para generar un archivo `.pfx` junto con una contraseña.
+
+Finalmente, se configuran los siguientes Listeners:
+
+![Listener 1](screenshots/ag_4.png)
+
+![Listener 2](screenshots/ag_5.png)
+
+Se establecen los siguientes Backend settings:
+
+![Backend Settings](screenshots/ag_6.png)
+
+Y se definen las reglas de enrutamiento:
+
+![Regla 1](screenshots/ag_7.png)
+
+![Regla 2](screenshots/ag_8.png)
