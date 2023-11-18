@@ -65,3 +65,13 @@ Posteriormente, se debe definir el `Address space` para este proyecto. En este e
 ![Primera Subnet](screenshots/virtual_network_2.png)
 
 ![Segunda Subnet](screenshots/virtual_network_3.png)
+
+### Configuración de la Política para el Web Application Firewall
+
+Para el correcto funcionamiento del WAF en el Application Gateway, es necesario crear una política específica. En primer lugar, se asigna un nombre a esta política, en este caso, se utilizó el nombre `ag-aks`, y se configura en modo de detección. Luego, se debe asociar esta política a todos los recursos previamente establecidos. Puedes observar la imagen a continuación como referencia:
+
+![Nombre de la Política](screenshots/waf_1.png)
+
+Posteriormente, se procede a seleccionar las Managed Rules conforme a los diferentes niveles de seguridad requeridos. En este proyecto, que se considera relativamente sencillo y con bajos riesgos, se optó por el conjunto de reglas OWASP 3.0. No obstante, se recomienda encarecidamente revisar y ajustar estas reglas según la complejidad y los riesgos particulares de cada proyecto. La imagen a continuación muestra la configuración de las reglas:
+
+![Configuración de Reglas](screenshots/waf_2.png)
