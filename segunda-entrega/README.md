@@ -115,3 +115,29 @@ Y se definen las reglas de enrutamiento:
 ![Regla 1](screenshots/ag_7.png)
 
 ![Regla 2](screenshots/ag_8.png)
+
+
+## Visualizacion Finales
+
+Ya con la correcta configuración del Application Gateway para dirigir el tráfico entrante hacia los destinos apropiados, se puede acceder a las aplicaciones desde los sitios:
+
+Para la aplicación de voto ![https://vote.diryon-mora.work/](https://vote.diryon-mora.work/), lo que nos muestra:
+
+![Aplicación de Voto](screenshots/final1.png)
+
+Para la aplicación de resultados ![https://results.diryon-mora.work/](https://results.diryon-mora.work/)
+
+![Aplicación de Resultados](screenshots/final2.png)
+
+
+## Comentarios Finales
+
+1. **Implementación Exitosa del Application Gateway:** La configuración detallada del Application Gateway ha permitido dirigir el tráfico entrante hacia las aplicaciones desplegadas, asegurando así su accesibilidad desde direcciones web específicas.
+
+2. **Uso Efectivo del Web Application Firewall (WAF):** La aplicación de políticas WAF_V2 y la selección de reglas de seguridad, como OWASP 3.0, han reforzado la seguridad de las aplicaciones, protegiéndolas contra posibles amenazas y vulnerabilidades.
+
+3. **Integración Completa con la Red y Subredes:** La vinculación del Application Gateway con la Virtual Network y subredes específicas ha garantizado una estructura de red eficiente y organizada para la gestión y seguridad de las aplicaciones desplegadas.
+
+4. **Necesidad de Consideraciones en la Configuración de Puertos:** La limitación en la configuración de reglas de enrutamiento debido al uso del mismo puerto por ambas aplicaciones demuestra la importancia de considerar los aspectos de configuración y la disponibilidad de puertos al diseñar la arquitectura.
+
+5. **Acceso Público y Usabilidad:** Las aplicaciones ahora son fácilmente accesibles a través de enlaces web específicos, lo que mejora la usabilidad y permite a los usuarios interactuar con las aplicaciones desplegadas de manera sencilla.
