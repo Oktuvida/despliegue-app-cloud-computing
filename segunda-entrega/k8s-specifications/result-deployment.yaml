@@ -20,3 +20,9 @@ spec:
         ports:
         - containerPort: 80
           name: result
+        #readinessProbe:
+        #  initialDelaySeconds: 5
+        #  timeoutSeconds: 5
+        #  httpGet:
+        #    port: 80
+        #    path: /results

@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-ingress
+  annotations:
+     appgw.ingress.kubernetes.io/appgw-ssl-certificate: origin
+  #  appgw.ingress.kubernetes.io/health-probe-path: "/healthz/liveness"
+  #  appgw.ingress.kubernetes.io/health-probe-interval: "45"
+spec:
+  ingressClassName: azure-application-gateway
+  rules:
+  - host: vote.diryon-mora.work
+    http:
+      paths:
+      - path: /
+        pathType: Exact
+        backend:
+          service:
+            name: vote
+            port:
+              number: 80
+  - host: results.diryon-mora.work
+    http:
+      paths:
+      - path: /
+        pathType: Exact
+        backend:
+          service:
+            name: result
+            port:
+              number: 80
