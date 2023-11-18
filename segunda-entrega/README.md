@@ -53,3 +53,15 @@ Luego se debe establecer un Grupo de Recursos donde se llevará a cabo todo el t
 Esta fase es bastante sencilla, ya que solo implica asignar un nombre. En nuestro caso, se utilizó el nombre `MC_cloud-computing_clu-vote_eastus`. Puedes ver la imagen a continuación como referencia.
 
 ![Resource Group](screenshots/resource_group.png)
+
+### Crear la Virtual Network
+
+Para configurar el Application Gateway, es necesario emplear una Virtual Network. El primer paso es nombrar esta red, en este caso, se la denominó `AKS-vnet-16379065`, como se muestra en la imagen a continuación: 
+
+![Name Virtual Network](screenshots/virtual_network_1.png)
+
+Posteriormente, se debe definir el `Address space` para este proyecto. En este escenario específico, se optó por `10.224.0.0/12`, aunque es fundamental disponer de un espacio lo suficientemente amplio para futuras expansiones. Además, se deben crear dos subredes. La primera, `aks-subnet`, se configuró como `10.224.0.0/24`. La segunda, llamada `ingress-appgateway-subnet`, se definió como `10.225.0.0/24`. Se recomienda que estas subredes finalicen en `/24` para limitar a 255 direcciones, evitando un exceso de direcciones no utilizadas. Véase las siguientes imagenes como referencia:
+
+![Primera Subnet](screenshots/virtual_network_2.png)
+
+![Segunda Subnet](screenshots/virtual_network_3.png)
