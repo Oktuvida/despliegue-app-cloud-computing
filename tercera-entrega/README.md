@@ -21,4 +21,4 @@ Finalmente desplegamos el WAF, cambiando su modo de política a **Prevención**.
 
 ## ¿Cómo opera la aplicación?
 
-Cuando un usuario ingresa a alguno de los dos dominios, el tráfico pasa por el Application Gateway (AG), actuándo como balanceador de carga y un WAF. El AG verifica las cabeceras y el cuerpo de la solicitud, si está presente, contra las reglas de WAF configuradas. Si la solicitud es valida, el AG enruta al backend adecuado según la configuración del `ingress.yml`, que en este caso es el puerto 80, eligiendo el backend según el dominio.
+Cuando un usuario ingresa a alguno de los dos dominios, el tráfico pasa por el Application Gateway (AG), actuándo como balanceador de carga y un WAF. El AG verifica las cabeceras y el cuerpo de la solicitud, si está presente, contra las reglas de WAF configuradas. Si la solicitud es valida, el AG enruta al backend adecuado según la configuración del [`ingress.yml`](/segunda-entrega/k8s-specifications/ingress.yml), que en este caso es el puerto 80, eligiendo el backend según el dominio.
