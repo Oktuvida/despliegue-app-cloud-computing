@@ -121,11 +121,11 @@ Y se definen las reglas de enrutamiento:
 
 Ya con la correcta configuración del Application Gateway para dirigir el tráfico entrante hacia los destinos apropiados, se puede acceder a las aplicaciones desde los sitios:
 
-Para la aplicación de voto ![https://vote.diryon-mora.work/](https://vote.diryon-mora.work/), lo que nos muestra:
+Para la aplicación de voto [https://vote.diryon-mora.work/](https://vote.diryon-mora.work/), lo que nos muestra:
 
 ![Aplicación de Voto](screenshots/final1.png)
 
-Para la aplicación de resultados ![https://results.diryon-mora.work/](https://results.diryon-mora.work/)
+Para la aplicación de resultados [https://results.diryon-mora.work/](https://results.diryon-mora.work/)
 
 ![Aplicación de Resultados](screenshots/final2.png)
 
